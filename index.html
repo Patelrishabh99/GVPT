@@ -209,71 +209,76 @@
       display: grid;
       place-items: center;
     }
-    .page4 .carousel {
-      width: 100%;
-      height: var(--height);
-      overflow: hidden;
-      mask-image: linear-gradient(to right, transparent, #000 10%, 90%, transparent);
-    }
-    .page4 .carousel:hover .carousel__item {
-      animation-play-state: paused !important;
-    }
-    .page4 .carousel__list {
-      display: flex;
-      width: 100%;
-      min-width: calc(var(--width) * var(--quantity));
-      position: relative;
-    }
-    .page4 .carousel__item {
-      width: var(--width);
-      height: var(--height);
-      position: absolute;
-      left: 100%;
-      text-align: center;
-      font-size: 45px;
-      animation: slide var(--duration) linear infinite;
-      animation-delay: calc((var(--duration) / var(--quantity)) * (var(--position) - var(--quantity))) !important;
-    }
-    .page4 .carousel[reverse="true"] .carousel__item {
-      animation: slideReverse var(--duration) linear infinite;
-    }
-    @keyframes slide {
-      from {
-        left: 100%;
-      }
-      to {
-        left: calc(var(--width) * -1);
-      }
-    }
-    @keyframes slideReverse {
-      from {
-        left: calc(var(--width) * -1);
-      }
-      to {
-        left: 100%;
-      }
-    }
-@keyframes slide {
-  from {
+
+.page4 .carousel {
+    width: calc(var(--width) * 7); /* Adjust to control the visible number of logos */
+    height: calc(var(--height) * 1.5);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.page4 .carousel:hover .carousel__item {
+    animation-play-state: paused !important;
+}
+
+.page4 .carousel__list {
+    display: flex;
+    width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.page4 .carousel__item {
+    width: var(--width);
+    height: var(--height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     left: 100%;
-  }
-  to {
-    left: calc(var(--width) * -1);
-  }
+    transition: transform 0.3s ease-in-out;
+    animation: slide var(--duration) linear infinite;
+    animation-delay: calc((var(--duration) / var(--quantity)) * (var(--position) - var(--quantity))) !important;
+}
+
+.page4 .carousel[reverse="true"] .carousel__item {
+    animation: slideReverse var(--duration) linear infinite;
+}
+
+.page4 .carousel__item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.page4 .carousel__item:hover {
+    transform: scale(1.3);
+}
+
+@keyframes slide {
+    from {
+        left: 100%;
+    }
+    to {
+        left: calc(-1 * var(--width) * var(--quantity));
+    }
 }
 
 @keyframes slideReverse {
-  from {
-    left: calc(var(--width) * -1);
-  }
-  to {
-    left: 100%;
-  }
+    from {
+        left: calc(-1 * var(--width) * var(--quantity));
+    }
+    to {
+        left: 100%;
+    }
 }
     </style>
 
-  </head>
-  <body>
+</head>
+<body>
     <section id="preloader-placeholder"></section>
     
 
@@ -312,41 +317,93 @@
           <div class="page4" style="justify-content: center;">
             <div><h3>OUR RECRUITERS</h3></div>
             <div class="carousel-container">
-              <!-- slider 1 -->
-              <div class="carousel" style="--width: 110px; --height: 50px; --quantity: 10; --duration: 15s;">
-                <div class="carousel__list">
-                  <i class="carousel__item fa-brands fa-apple" style="--position: 1"></i>
-                  <i class="carousel__item fa-brands fa-windows" style="--position: 2"></i>
-                  <i class="carousel__item fa-brands fa-cc-visa" style="--position: 3"></i>
-                  <i class="carousel__item fa-brands fa-dribbble" style="--position: 4"></i>
-                  <i class="carousel__item fa-brands fa-airbnb" style="--position: 5"></i>
-                  <i class="carousel__item fa-brands fa-amazon" style="--position: 6"></i>
-                  <i class="carousel__item fa-brands fa-imdb" style="--position: 7"></i>
-                  <i class="carousel__item fa-brands fa-linkedin" style="--position: 8"></i>
-                  <i class="carousel__item fa-brands fa-facebook" style="--position: 9"></i>
-                  <i class="carousel__item fa-brands fa-twitter" style="--position: 10"></i>
-                </div>
+              <!-- Slider 1 -->
+              <div class="carousel" style="--width: 110px; --height: 100px; --quantity: 33; --duration: 20s;">
+                  <div class="carousel__list">
+                      <div class="carousel__item" style="--position: 1;"><img src="logo/11-removebg-preview.png" alt="Logo 1"></div>
+                      <div class="carousel__item" style="--position: 2;"><img src="logo/12-removebg-preview.png" alt="Logo 2"></div>
+                      <div class="carousel__item" style="--position: 3;"><img src="logo/13-removebg-preview.png" alt="Logo 3"></div>
+                      <div class="carousel__item" style="--position: 4;"><img src="logo/14-removebg-preview.png" alt="Logo 4"></div>
+                      <div class="carousel__item" style="--position: 5;"><img src="logo/26-removebg-preview.png" alt="Logo 5"></div>
+                      <div class="carousel__item" style="--position: 6;"><img src="logo/27-removebg-preview.png" alt="Logo 6"></div>
+                      <div class="carousel__item" style="--position: 7;"><img src="logo/32-removebg-preview.png" alt="Logo 7"></div>
+                      <div class="carousel__item" style="--position: 8;"><img src="logo/33-removebg-preview.png" alt="Logo 8"></div>
+                      <div class="carousel__item" style="--position: 9;"><img src="logo/34-removebg-preview.png" alt="Logo 9"></div>
+                      <div class="carousel__item" style="--position: 10;"><img src="logo/airtel-removebg-preview.png" alt="Logo 10"></div>
+                      <div class="carousel__item" style="--position: 11;"><img src="logo/amara_raja-removebg-preview.png" alt="Logo 11"></div>
+                      <div class="carousel__item" style="--position: 12;"><img src="logo/apollo_munich-removebg-preview.png" alt="Logo 12"></div>
+                      <div class="carousel__item" style="--position: 13;"><img src="logo/ar_steel-removebg-preview.png" alt="Logo 13"></div>
+                      <div class="carousel__item" style="--position: 14;"><img src="logo/axis_bank-removebg-preview.png" alt="Logo 14"></div>
+                      <div class="carousel__item" style="--position: 15;"><img src="logo/central-removebg-preview.png" alt="Logo 15"></div>
+                      <div class="carousel__item" style="--position: 16;"><img src="logo/cp_group-removebg-preview.png" alt="Logo 16"></div>
+                      <div class="carousel__item" style="--position: 17;"><img src="logo/cure.fit-removebg-preview.png" alt="Logo 17"></div>
+                      <div class="carousel__item" style="--position: 18;"><img src="logo/genpact-removebg-preview.png" alt="Logo 18"></div>
+                      <div class="carousel__item" style="--position: 19;"><img src="logo/hdfc_bank-removebg-preview.png" alt="Logo 19"></div>
+                      <div class="carousel__item" style="--position: 20;"><img src="logo/hsbc-removebg-preview.png" alt="Logo 20"></div>
+                      <div class="carousel__item" style="--position: 21;"><img src="logo/icici_bank-removebg-preview.png" alt="Logo 21"></div>
+                      <div class="carousel__item" style="--position: 22;"><img src="logo/induslnd_bank-removebg-preview.png" alt="Logo 22"></div>
+                      <div class="carousel__item" style="--position: 23;"><img src="logo/infosys-removebg-preview.png" alt="Logo 23"></div>
+                      <div class="carousel__item" style="--position: 24;"><img src="logo/jio-removebg-preview.png" alt="Logo 24"></div>
+                      <div class="carousel__item" style="--position: 25;"><img src="logo/just_dial-removebg-preview.png" alt="Logo 25"></div>
+                      <div class="carousel__item" style="--position: 26;"><img src="logo/mind_tree-removebg-preview.png" alt="Logo 26"></div>
+                      <div class="carousel__item" style="--position: 27;"><img src="logo/muthoot_finance-removebg-preview.png" alt="Logo 27"></div>
+                      <div class="carousel__item" style="--position: 28;"><img src="logo/tata-removebg-preview.png" alt="Logo 28"></div>
+                      <div class="carousel__item" style="--position: 29;"><img src="logo/ultra_tech-removebg-preview.png" alt="Logo 29"></div>
+                      <div class="carousel__item" style="--position: 30;"><img src="logo/w2w-removebg-preview.png" alt="Logo 30"></div>
+                      <div class="carousel__item" style="--position: 31;"><img src="logo/vaibhav-removebg-preview.png" alt="Logo 31"></div>
+                      <div class="carousel__item" style="--position: 32;"><img src="logo/32-removebg-preview.png" alt="Logo 32"></div>
+                      <div class="carousel__item" style="--position: 33;"><img src="logo/just_dial-removebg-preview.png" alt="Logo 33"></div>
+                  </div>
+              </div>  
+              <!-- Slider 2 -->
+              <div class="carousel" reverse="true" style="--width: 110px; --height: 100px; --quantity: 33; --duration: 20s;">
+                  <div class="carousel__list">
+                      <div class="carousel__item" style="--position: 1;"><img src="logo/11-removebg-preview.png" alt="Logo 1"></div>
+                      <div class="carousel__item" style="--position: 2;"><img src="logo/12-removebg-preview.png" alt="Logo 2"></div>
+                      <div class="carousel__item" style="--position: 3;"><img src="logo/13-removebg-preview.png" alt="Logo 3"></div>
+                      <div class="carousel__item" style="--position: 4;"><img src="logo/14-removebg-preview.png" alt="Logo 4"></div>
+                      <div class="carousel__item" style="--position: 5;"><img src="logo/26-removebg-preview.png" alt="Logo 5"></div>
+                      <div class="carousel__item" style="--position: 6;"><img src="logo/27-removebg-preview.png" alt="Logo 6"></div>
+                      <div class="carousel__item" style="--position: 7;"><img src="logo/32-removebg-preview.png" alt="Logo 7"></div>
+                      <div class="carousel__item" style="--position: 8;"><img src="logo/33-removebg-preview.png" alt="Logo 8"></div>
+                      <div class="carousel__item" style="--position: 9;"><img src="logo/34-removebg-preview.png" alt="Logo 9"></div>
+                      <div class="carousel__item" style="--position: 10;"><img src="logo/airtel-removebg-preview.png" alt="Logo 10"></div>
+                      <div class="carousel__item" style="--position: 11;"><img src="logo/amara_raja-removebg-preview.png" alt="Logo 11"></div>
+                      <div class="carousel__item" style="--position: 12;"><img src="logo/apollo_munich-removebg-preview.png" alt="Logo 12"></div>
+                      <div class="carousel__item" style="--position: 13;"><img src="logo/ar_steel-removebg-preview.png" alt="Logo 13"></div>
+                      <div class="carousel__item" style="--position: 14;"><img src="logo/axis_bank-removebg-preview.png" alt="Logo 14"></div>
+                      <div class="carousel__item" style="--position: 15;"><img src="logo/central-removebg-preview.png" alt="Logo 15"></div>
+                      <div class="carousel__item" style="--position: 16;"><img src="logo/cp_group-removebg-preview.png" alt="Logo 16"></div>
+                      <div class="carousel__item" style="--position: 17;"><img src="logo/cure.fit-removebg-preview.png" alt="Logo 17"></div>
+                      <div class="carousel__item" style="--position: 18;"><img src="logo/genpact-removebg-preview.png" alt="Logo 18"></div>
+                      <div class="carousel__item" style="--position: 19;"><img src="logo/hdfc_bank-removebg-preview.png" alt="Logo 19"></div>
+                      <div class="carousel__item" style="--position: 20;"><img src="logo/hsbc-removebg-preview.png" alt="Logo 20"></div>
+                      <div class="carousel__item" style="--position: 21;"><img src="logo/icici_bank-removebg-preview.png" alt="Logo 21"></div>
+                      <div class="carousel__item" style="--position: 22;"><img src="logo/induslnd_bank-removebg-preview.png" alt="Logo 22"></div>
+                      <div class="carousel__item" style="--position: 23;"><img src="logo/infosys-removebg-preview.png" alt="Logo 23"></div>
+                      <div class="carousel__item" style="--position: 24;"><img src="logo/jio-removebg-preview.png" alt="Logo 24"></div>
+                      <div class="carousel__item" style="--position: 25;"><img src="logo/just_dial-removebg-preview.png" alt="Logo 25"></div>
+                      <div class="carousel__item" style="--position: 26;"><img src="logo/mind_tree-removebg-preview.png" alt="Logo 26"></div>
+                      <div class="carousel__item" style="--position: 27;"><img src="logo/muthoot_finance-removebg-preview.png" alt="Logo 27"></div>
+                      <div class="carousel__item" style="--position: 28;"><img src="logo/tata-removebg-preview.png" alt="Logo 28"></div>
+                      <div class="carousel__item" style="--position: 29;"><img src="logo/ultra_tech-removebg-preview.png" alt="Logo 29"></div>
+                      <div class="carousel__item" style="--position: 30;"><img src="logo/w2w-removebg-preview.png" alt="Logo 30"></div>
+                      <div class="carousel__item" style="--position: 31;"><img src="logo/vaibhav-removebg-preview.png" alt="Logo 31"></div>
+                      <div class="carousel__item" style="--position: 32;"><img src="logo/32-removebg-preview.png" alt="Logo 32"></div>
+                      <div class="carousel__item" style="--position: 33;"><img src="logo/just_dial-removebg-preview.png" alt="Logo 33"></div>
+                  </div>
               </div>
-              <br>
-              <!-- slider 2 -->
-              <div class="carousel" reverse="true" style="--width: 110px; --height: 50px; --quantity: 10; --duration: 15s;">
-                <div class="carousel__list">
-                  <i class="carousel__item fa-brands fa-apple" style="--position: 1"></i>
-                  <i class="carousel__item fa-brands fa-windows" style="--position: 2"></i>
-                  <i class="carousel__item fa-brands fa-cc-visa" style="--position: 3"></i>
-                  <i class="carousel__item fa-brands fa-dribbble" style="--position: 4"></i>
-                  <i class="carousel__item fa-brands fa-airbnb" style="--position: 5"></i>
-                  <i class="carousel__item fa-brands fa-amazon" style="--position: 6"></i>
-                  <i class="carousel__item fa-brands fa-imdb" style="--position: 7"></i>
-                  <i class="carousel__item fa-brands fa-linkedin" style="--position: 8"></i>
-                  <i class="carousel__item fa-brands fa-facebook" style="--position: 9"></i>
-                  <i class="carousel__item fa-brands fa-twitter" style="--position: 10"></i>
-                </div>
-              </div>
-            </div>
           </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
 
       </main>
+      <br>
+      <br>
  
       <script>
         const heading = document.getElementById('dynamic-heading');
